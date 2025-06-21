@@ -18,8 +18,9 @@ public List<List<Integer>> levelOrderBottom(TreeNode root) {
                     queue.offer(currentnode.right);
                 }
             }
-            list.add(level);
+            list.add(level); //instead we can also specify where we need to add the list. example list.add(0,level); this will add everylist in the final one at the beginning.
+            //by doing this you dont need to call collections.reverse() function.
         }
-        Collections.reverse(list);
+        Collections.reverse(list); 
         return list;
     }
