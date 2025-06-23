@@ -1,4 +1,4 @@
-public TreeNode averageOfLevels(TreeNode root) {
+public TreeNode levelordersuccessor(TreeNode root) {
         if(root==null){
             return null;
         }
