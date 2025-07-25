@@ -41,6 +41,8 @@ class MyGraph{
         list.get(v).add(u);
 
     }
+
+    // detect cycle using bfs
     public boolean detectcycle(int v){
         boolean[] vis=new boolean[v+1];
         for(int i=0;i<list.size();i++){
@@ -68,6 +70,34 @@ class MyGraph{
                 }else if(adjacentnode!=parent){
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+
+    //detect cycle using dfs
+    public boolean detecctcycledfs(int v){
+        boolean[] vis=new boolean[v+1];
+        for(int i=0;i<list.size();i++){
+            if(!vis[i]){
+                if(dfshelper(i,-1,vis)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean dfshelper(int node, int parent, boolean[] vis) {
+        vis[node]=true;
+
+        for(int adj:list.get(node)){
+            if(!vis[adj]){
+                if(dfshelper(adj,node,vis)){
+                    return true;
+                }
+            }else if(adj!=parent){
+                return true;
             }
         }
         return false;
