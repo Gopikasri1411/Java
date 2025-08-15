@@ -9,5 +9,5 @@ void func(int n){
       arr[i+2]+=arr[i];
     }
   }
-return arr[n];
+System.out.println(arr[n]);
 }
